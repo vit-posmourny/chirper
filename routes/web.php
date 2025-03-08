@@ -20,8 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store'])
-    ->middleware('auth', 'verified'); 
+Route::post('chirps', [ChirpController::class, 'store'])->middleware('auth', 'verified')->name('chirps.store'); 
+Route::get('chirps', [ChirpController::class, 'index'])->middleware('auth', 'verified')->name('chirps.index'); 
 
 require __DIR__.'/auth.php';
