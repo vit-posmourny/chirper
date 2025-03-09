@@ -7,7 +7,7 @@
             <textarea 
                 name="message"
                 placeholder="{{ __('What\'s on your mind?') }}"
-                class="block min-h-8 w-full px-3 py-1 border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                class="block min-h-10 w-full px-3 py-2 border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
             >{{ old('message') }}</textarea>
             
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
@@ -20,9 +20,12 @@
 
             @foreach ($chirps as $chirp)
                 <div class="p-3 flex space-x-2">
+
+                    <i data-lucide='message-circle-more'></i>
+
                     <div class="flex-1">
 
-                        <div class="text-sm flex justify-end">
+                        <div class="text-sm flex mt-px">
                             <div>
                                 
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>

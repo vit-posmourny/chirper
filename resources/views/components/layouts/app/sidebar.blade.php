@@ -1,3 +1,4 @@
+{{-- resources/views/components/layouts/app/sidebar.blade.php --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
@@ -129,5 +130,8 @@
         {{ $slot }}
 
         @fluxScripts
+
+        <script src="{{ Vite::asset('resources/js/lucide-script.js') }}">
+
     </body>
 </html>
