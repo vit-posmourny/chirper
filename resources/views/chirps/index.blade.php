@@ -30,7 +30,7 @@
                                 
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>
 
-                                <small class="ml-2 text-xs text-gray-600">{{ $chirp->created_at; }}</small>
+                                <small class="ml-2 text-xs text-gray-600">{{ $chirp->created_at->addHour(); }}</small>
 
                             </div>
                         </div>
