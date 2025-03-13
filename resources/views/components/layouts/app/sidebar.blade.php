@@ -4,7 +4,12 @@
     <head>
         @include('partials.head')
     </head>
+
+@if (request()->path() === 'chirps')
     <body class="h-screen overflow-hidden bg-white dark:bg-zinc-800">
+@else
+    <body class="h-screen bg-white dark:bg-zinc-800">
+@endif
         <flux:sidebar sticky stashable class="min-h-screen border-r border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 

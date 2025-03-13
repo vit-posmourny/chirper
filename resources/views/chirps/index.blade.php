@@ -1,6 +1,6 @@
 <x-layouts.app>
-
-    <div class="flex flex-col justify-stretch max-h-[95vh] max-w-2xl mx-auto p-4 sm:p-6 lg:p-6">
+    
+    <div class="flex flex-col max-h-[95vh] max-w-2xl mx-auto p-4 sm:p-6 lg:p-6">
 
         <form method="POST" action="{{ route('chirps.store') }}">
             @csrf
@@ -16,7 +16,7 @@
 
         </form>    
 
-        <div class="shrink mt-6 bg-white overflow-auto shadow-sm rounded-lg divide-y">
+        <div class="overflow-auto mt-6 bg-white shadow-sm rounded-lg divide-y">
 
             @foreach ($chirps as $chirp)
                 <div class="p-3 flex space-x-2">
