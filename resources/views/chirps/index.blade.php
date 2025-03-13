@@ -1,6 +1,6 @@
 <x-layouts.app>
     
-    <div class="flex flex-col max-h-[95vh] max-w-2xl mx-auto p-4 sm:p-6 lg:p-6">
+    <div class="flex flex-col max-h-[85vh] lg:max-h-[95vh] max-w-2xl mx-auto p-4 sm:p-6 lg:p-6">
 
         <form method="POST" action="{{ route('chirps.store') }}">
             @csrf
