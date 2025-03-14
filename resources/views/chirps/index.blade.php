@@ -20,8 +20,11 @@
 
             @foreach ($chirps as $chirp)
                 <div class="p-3 flex space-x-2">
-
-                    <i data-lucide='message-circle-more'></i>
+                    
+                    <div>
+                        {{-- <i data-lucide='message-circle-more'></i> --}}
+                        <img src="{{ Vite::asset('resources/icons/sms_24dp_EA33F7_FILL0_wght300_GRAD0_opsz24.svg') }}">
+                    </div>
 
                     <div class="flex-1">
 
