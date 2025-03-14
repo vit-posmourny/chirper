@@ -136,6 +136,7 @@
 
         @fluxScripts
 
+        @include('partials.foot')
         <script src="{{ Vite::asset('resources/js/lucide-script.js') }}">
 
     </body>
