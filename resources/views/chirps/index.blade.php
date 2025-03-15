@@ -22,8 +22,8 @@
                 <div class="p-3 flex space-x-2">
                     
                     <div>
-                        {{-- <i data-lucide='message-circle-more'></i> --}}
-                        <img src="{{ Vite::asset('resources/icons/sms_24dp_EA33F7_FILL0_wght300_GRAD0_opsz24.svg') }}">
+                        <i data-lucide='message-circle-more'></i>
+                        {{-- <img src="{{ Vite::asset('resources/icons/sms_24dp_EA33F7_FILL0_wght300_GRAD0_opsz24.svg') }}"> --}}
                     </div>
 
                     <div class="flex-1">
@@ -46,9 +46,10 @@
 
                                 <x-dropdown class="place-self-end">
                                     <x-slot name="trigger">
-                                        <button>
-                                            <img src="{{ Vite::asset('resources/icons/more_horiz_24dp_666666_FILL0_wght300_GRAD0_opsz24.svg') }}">
-                                        </button>
+                                        
+                                            <i data-lucide='ellipsis' class="icon"></i>
+                                            {{-- <img src="{{ Vite::asset('resources/icons/more_horiz_24dp_666666_FILL0_wght300_GRAD0_opsz24.svg') }}"> --}}
+                                        
                                     </x-slot>
 
                                     <x-slot name="content">
