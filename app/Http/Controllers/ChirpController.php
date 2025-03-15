@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chirp;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class ChirpController extends Controller
 {
@@ -47,13 +48,34 @@ class ChirpController extends Controller
 
     public function edit(Chirp $chirp)
     {
-        //
+
+        if (! Gate::allows('update-chirp', $chirp)) {
+            abort(403);
+        }
+
+        return view('chirps.edit', [
+            'chirp' => $chirp
+        ]);
     }
 
 
     public function update(Request $request, Chirp $chirp)
     {
-        //
+
+        if (! Gate::allows('update-chirp', $chirp)) {
+            abort(403);
+        }
+
+
+        $validated = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+
+
+        $chirp->update($validated);
+
+
+        return redirect(route('chirps.index'));
     }
 
 

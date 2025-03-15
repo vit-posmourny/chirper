@@ -22,7 +22,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('chirps', [ChirpController::class, 'store'])->middleware('auth', 'verified')->name('chirps.store'); 
 Route::get('chirps', [ChirpController::class, 'index'])->middleware('auth', 'verified')->name('chirps.index'); 
-Route::post('chirps/{chirp}/edit', [ChirpController::class, 'edit'])->middleware('auth', 'verified')->name('chirps.edit'); 
+Route::get('chirps/{chirp}/edit', [ChirpController::class, 'edit'])->middleware('auth', 'verified')->name('chirps.edit'); 
 Route::patch('chirps/{chirp}', [ChirpController::class, 'update'])->middleware('auth', 'verified')->name('chirps.update'); 
 
 require __DIR__.'/auth.php';
