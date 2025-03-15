@@ -30,12 +30,18 @@
 
                         <div class="text-sm flex mt-px">
                             <div>
-                                
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>
 
                                 <small class="ml-2 text-xs text-gray-600">{{ $chirp->created_at->addHour(); }}</small>
 
+                                @unless ($chirp->created_at->eq($chirp->updated_at))
+
+                                    <span class="pl-2 pr-1 text-xl align-middle text-gray-600">&middot;</span><small class="text-sm text-gray-600">{{ __('edited') }}</small>
+
+                                @endunless
+                                
                             </div>
+
                         </div>
 
                         <p class="mt-2 text-base text-gray-900">{{ $chirp->message; }}</p>
