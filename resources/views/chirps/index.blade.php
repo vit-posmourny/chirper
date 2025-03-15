@@ -28,7 +28,7 @@
 
                     <div class="flex-1">
 
-                        <div class="text-sm flex mt-px">
+                        <div class="flex text-sm mt-px justify-between">
                             <div>
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>
 
@@ -41,6 +41,26 @@
                                 @endunless
                                 
                             </div>
+
+                            @if ($chirp->user->is(auth()->user()))
+
+                                <x-dropdown class="place-self-end">
+                                    <x-slot name="trigger">
+                                        <button>
+                                            <img src="{{ Vite::asset('resources/icons/more_horiz_24dp_666666_FILL0_wght300_GRAD0_opsz24.svg') }}">
+                                        </button>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <x-dropdown-link :href="route('chirps.edit', $chirp)">
+
+                                            {{ __('Edit') }}
+
+                                        </x-dropdown-link>
+                                    </x-slot>
+                                </x-dropdown>
+
+                            @endif
 
                         </div>
 
