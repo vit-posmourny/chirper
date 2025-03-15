@@ -7,7 +7,7 @@
             <textarea 
                 name="message"
                 placeholder="{{ __('What\'s on your mind?') }}"
-                class="max-h-[40vh] block min-h-10 w-full px-3 py-2 border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                class="max-h-[40vh] block min-h-10 w-full px-3 py-2 border-1 border-gray-300 focus:ring-2 focus:ring-fuchsia-600 rounded-md shadow-sm"
             >{{ old('message') }}</textarea>
             
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
@@ -32,7 +32,7 @@
                             <div>
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>
 
-                                <small class="ml-2 text-xs text-gray-600">{{ $chirp->created_at->addHour(); }}</small>
+                                <small class="ml-2 text-xs text-gray-600">{{ $chirp->updated_at->addHour(); }}</small>
 
                                 @unless ($chirp->created_at->eq($chirp->updated_at))
 
