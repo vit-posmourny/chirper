@@ -20,19 +20,48 @@
 
             @foreach ($chirps as $chirp)
                 <div class="p-3 flex space-x-2">
-
-                    <i data-lucide='message-circle-more'></i>
+                    
+                    <div>
+                        {{-- <i data-lucide='message-circle-more'></i> --}}
+                        <img src="{{ Vite::asset('resources/icons/sms_24dp_EA33F7_FILL0_wght300_GRAD0_opsz24.svg') }}">
+                    </div>
 
                     <div class="flex-1">
 
-                        <div class="text-sm flex mt-px">
+                        <div class="flex text-sm mt-px justify-between">
                             <div>
-                                
                                 <span class="text-gray-800">{{ $chirp->user->name; }}</span>
 
                                 <small class="ml-2 text-xs text-gray-600">{{ $chirp->created_at->addHour(); }}</small>
 
+                                @unless ($chirp->created_at->eq($chirp->updated_at))
+
+                                    <span class="pl-2 pr-1 text-xl align-middle text-gray-600">&middot;</span><small class="text-sm text-gray-600">{{ __('edited') }}</small>
+
+                                @endunless
+                                
                             </div>
+
+                            @if ($chirp->user->is(auth()->user()))
+
+                                <x-dropdown class="place-self-end">
+                                    <x-slot name="trigger">
+                                        <button>
+                                            <img src="{{ Vite::asset('resources/icons/more_horiz_24dp_666666_FILL0_wght300_GRAD0_opsz24.svg') }}">
+                                        </button>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <x-dropdown-link :href="route('chirps.edit', $chirp)">
+
+                                            {{ __('Edit') }}
+
+                                        </x-dropdown-link>
+                                    </x-slot>
+                                </x-dropdown>
+
+                            @endif
+
                         </div>
 
                         <p class="mt-2 text-base text-gray-900">{{ $chirp->message; }}</p>
