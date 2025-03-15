@@ -29,14 +29,13 @@ class ChirpController extends Controller
     public function store(Request $request)
     {
 
-         $validated = $request->validate([
+        $validated = $request->validate([
             'message' => 'required|string|max:255',
-         ]);
+        ]);
 
-         
-         $request->user()->chirps()->create($validated);
+        $request->user()->chirps()->create($validated);
 
-         return redirect(route('chirps.index'));
+        return redirect(route('chirps.index'));
     }
 
 
@@ -48,7 +47,6 @@ class ChirpController extends Controller
 
     public function edit(Chirp $chirp)
     {
-
         Gate::authorize('update-chirp', $chirp);
 
         return view('chirps.edit', [
@@ -59,7 +57,7 @@ class ChirpController extends Controller
 
     public function update(Request $request, Chirp $chirp)
     {
-
+        
         Gate::authorize('update-chirp', $chirp);
 
         $validated = $request->validate([
@@ -76,6 +74,10 @@ class ChirpController extends Controller
 
     public function destroy(Chirp $chirp)
     {
-        //
+        Gate::authorize('update-chirp', $chirp);
+
+        $chirp->delete();
+
+        return redirect(route('chirps.index'));
     }
 }

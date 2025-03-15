@@ -24,6 +24,6 @@ Route::post('chirps', [ChirpController::class, 'store'])->middleware('auth', 've
 Route::get('chirps', [ChirpController::class, 'index'])->middleware('auth', 'verified')->name('chirps.index'); 
 Route::get('chirps/{chirp}/edit', [ChirpController::class, 'edit'])->middleware('auth', 'verified')->name('chirps.edit'); 
 Route::patch('chirps/{chirp}', [ChirpController::class, 'update'])->middleware('auth', 'verified')->name('chirps.update'); 
-Route::destroy('chirps/{chirp}', [ChirpController::class, 'destroy'])->middleware('auth', 'verified')->name('chirps.destroy'); 
+Route::delete('chirps/{chirp}', [ChirpController::class, 'destroy'])->middleware('auth', 'verified')->name('chirps.destroy'); 
 
 require __DIR__.'/auth.php';
