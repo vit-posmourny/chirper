@@ -49,9 +49,7 @@ class ChirpController extends Controller
     public function edit(Chirp $chirp)
     {
 
-        if (! Gate::allows('update-chirp', $chirp)) {
-            abort(403);
-        }
+        Gate::authorize('update-chirp', $chirp);
 
         return view('chirps.edit', [
             'chirp' => $chirp
@@ -62,10 +60,7 @@ class ChirpController extends Controller
     public function update(Request $request, Chirp $chirp)
     {
 
-        if (! Gate::allows('update-chirp', $chirp)) {
-            abort(403);
-        }
-
+        Gate::authorize('update-chirp', $chirp);
 
         $validated = $request->validate([
             'message' => 'required|string|max:255',
