@@ -3,10 +3,15 @@
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
+use App\Mail\ChirpPosted;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('test', function() {
+    return new ChirpPosted();
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
