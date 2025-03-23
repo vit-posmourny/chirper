@@ -1,16 +1,20 @@
 <?php
 
 use Livewire\Volt\Volt;
+use App\Mail\ChirpPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
-use App\Mail\ChirpPosted;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
 Route::get('test', function() {
-    return new ChirpPosted();
+    Mail::to('jan.novak@email.cz')->send(
+        new ChirpPosted());
+
+    return 'Done';
 });
 
 Route::view('dashboard', 'dashboard')
