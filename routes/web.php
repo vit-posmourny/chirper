@@ -10,13 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('test', function() {
-    Mail::to('jan.novak@email.cz')->send(
-        new ChirpPosted());
-
-    return 'Done';
-});
-
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
