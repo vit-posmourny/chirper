@@ -1,6 +1,8 @@
 <?php
 
 use Livewire\Volt\Volt;
+use App\Mail\ChirpPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
 
