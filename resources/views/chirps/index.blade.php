@@ -47,6 +47,7 @@
                                 <x-dropdown class="place-self-end">
                                     <x-slot name="trigger">
                                         <button>
+                                            {{-- <i data-lucide='ellipsis-vertical'></i> --}}
                                             <img src="{{ Vite::asset('resources/icons/more_horiz_24dp_666666_FILL0_wght300_GRAD0_opsz24.svg') }}">
                                         </button>
                                     </x-slot>
