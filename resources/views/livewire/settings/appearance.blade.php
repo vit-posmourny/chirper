@@ -6,7 +6,7 @@ new class extends Component {
     //
 }; ?>
 
-<div class="flex flex-col items-start">
+<div class="flex flex-col items-start portrait:px-7 landscape:px-7 landscape:pb-4 max-h-[87vh] overflow-auto">
     @include('partials.settings-heading')
 
     <x-settings.layout heading="{{ __('Appearance') }}" subheading="{{ __('Update the appearance settings for your account') }}">

@@ -69,7 +69,7 @@ new class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="portrait:px-7 landscape:px-7 landscape:pb-4 max-h-[85vh] overflow-auto w-full">
     @include('partials.settings-heading')
 
     <x-settings.layout heading="{{ __('Profile') }}" subheading="{{ __('Update your name and email address') }}">

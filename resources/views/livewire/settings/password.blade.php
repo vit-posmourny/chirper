@@ -37,7 +37,7 @@ new class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="w-full portrait:px-7 landscape:px-7 landscape:pb-6 max-h-[87vh] overflow-auto">
     @include('partials.settings-heading')
 
     <x-settings.layout heading="{{ __('Update password') }}" subheading="{{ __('Ensure your account is using a long, random password to stay secure') }}">
